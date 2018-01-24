@@ -1,0 +1,95 @@
+html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Avenir Black', sans-serif;
+  margin: 0 auto;
+  padding: 5%;
+  color:white;
+  background: black;
+  text-align: center;
+}
+
+.about {
+  margin: 0 auto;
+  width: 80%;
+  height: auto;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5%
+}
+
+.ITMe {
+  margin: 0 auto;
+  width: 80%;
+  height: auto;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5%
+}
+
+.projects {
+  margin: 0 auto;
+  width: 80%;
+  height: auto;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5%
+}
+
+.img-circle {
+  max-width: 40%;
+  max-height: 40%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.social-icons {
+  font-size: 300%;
+  text-align: center;
+  line-height: 1%;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+p {
+  font-weight: 300;
+  font-size: 200%;
+  text-align: justify;
+}
+
+.a {
+  color:white;
+  text-decoration: none;
+  font-style: italic;
+}
+
+a:hover {
+  color: red;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 5.5vw;
+  text-align: center;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 4vw;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 3vw;
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+.about p {
+  font-weight: 200;
+  font-size: 250%;
+  text-align: center;
+}
