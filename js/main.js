@@ -85,7 +85,6 @@ $(window).load(function() {
   test.css({"display": "none"});
   console.log("text.width(): " + test.width() + " $(\"#headerdiv.width()\"): " + $("#headerdiv").width());
 
-  var del = 500;
   setTimeout(function() {
     drawNextCharacter(0);
   }, 570);

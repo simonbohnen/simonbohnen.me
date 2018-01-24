@@ -40,24 +40,85 @@
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff2");
 }
 
+/** heavy */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 600;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-heavy-webfont.woff2");
+}
 
 html {
   font-family: -apple-system, BlinkMacSystemFont, "San Francisco", 'Avenir Black', 'Avenir', 'Roboto', sans-serif;
   margin: 0 auto;
   padding: 5%;
   color:black;
-  /* beachBackground
-  background: url(../images/bgBeach.jpg) no-repeat center center fixed;
-  background-size:     cover;
-  background-repeat:   no-repeat;
-  background-position: center center;
-  gradient:*/
   background: white;
-/*  background: -webkit-linear-gradient(yellow, red); /* Safari 5.1 to 6.0 */
-  /*background: -o-linear-gradient(yellow, red); /* Opera 11.1 to 12.0 */
-  /*background: -moz-linear-gradient(yellow, red); /* Firefox 3.6 to 15 */
-  /*background: linear-gradient(rgba(255, 255, 0, 0.5), red); /* Standard syntax */
 }
+
+#headerdiv {
+  width: 100%;
+  margin: 0 0;
+}
+
+#name {
+  font-weight: 600;
+  font-size: 7vw;
+  text-align: left;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.about {
+  margin: 0 auto;
+  height: auto;
+  padding: 1vh;
+}
+
+.about p {
+  font-weight: 200;
+  font-size: 2.5em;
+  text-align: center;
+  margin-top: 1vh;
+  padding-left: max(3vw, env(safe-area-inset-left));
+  padding-right: max(3vw, env(safe-area-inset-right));
+}
+
+#always-hidden {
+  visibility: hidden;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 7vw;
+  text-align: left;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p {
+  font-weight: 300;
+  font-size: 1.5em;
+  text-align: justify;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .linelink {
   position: relative;
   text-decoration: none;
@@ -72,7 +133,7 @@ html {
   height: 0.075em;
   bottom: 0.125em;
   left: 0;
-  background: rgba(0, 0, 255, 0.9);
+  background: rgba(0, 0, 143, 0.9);
   visibility: hidden;
   border-radius: 2px;
   transform: scaleX(0);
@@ -87,23 +148,15 @@ html {
 
 .multilinelink {
   text-decoration: none;
-  color: rgba(0, 0, 255, 0.9);
+  color: rgba(0, 0, 143, 0.9);
 }
 
 .multilinelink:hover {
   text-decoration: underline;
 }
 
-.about {
-  margin: 0 auto;
-
-  height: auto;
-  /*background: rgba(0, 0, 0, 0.3);*/
-  padding: 1vh;
-}
-
 .social-icons a, .social-icons i {
-  color: rgba(0, 0, 255, 0.9);
+  color: rgba(0, 0, 143, 0.9);
 }
 
 .social-icons a:hover, .social-icons i:hover {
@@ -127,7 +180,7 @@ html {
   margin: 0 auto;
   text-align: center;
   margin-bottom: 0px;
-  border: 0.5vh solid rgba(0, 0, 255, 0.9);
+  border: 0.5vh solid rgba(0, 0, 143, 0.9);
   border-radius: 50%;
 }
 .img-circle:hover{
@@ -137,12 +190,12 @@ html {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  border: 0.5vh solid rgba(0, 0, 255, 0.9);
+  border: 0.5vh solid rgba(0, 0, 143, 0.9);
   box-shadow: 0 1.5em 5em rgba(0, 0, 0, 0.5);
 }
 
 .projPic:hover {
-  border: 0.5vh solid rgba(0, 0, 255, 0.9);
+  border: 0.5vh solid rgba(0, 0, 143, 0.9);
 }
 
 .project {
@@ -176,26 +229,15 @@ html {
   max-height: 7,375vh;
 }
 
-p {
-  font-weight: 300;
-  font-size: 1.5em;
-  text-align: justify;
-}
+
 
 .about {
   text-align: center;
 }
-.about p {
-  font-weight: 200;
-  font-size: 2.5em;
-  text-align: center;
-  margin-top: 1vh;
-  padding-left: max(3vw, env(safe-area-inset-left));
-  padding-right: max(3vw, env(safe-area-inset-right));
-}
+
 
 .content a {
-  color: rgba(0, 0, 255, 0.9);
+  color: rgba(0, 0, 143, 0.9);
   z-index: -1;
   text-decoration: none;
   font-style: none;
@@ -255,7 +297,7 @@ h5 {
 }
 
 .nav {
-  background-color: rgba(0, 0, 255, 0.9);
+  background-color: rgba(0, 0, 143, 0.9);
   overflow: hidden;
   position: fixed;
   left: 0;
@@ -281,7 +323,7 @@ h5 {
 
 .nav a:hover {
   background-color: white;
-  color: rgba(0, 0, 255, 0.9);
+  color: rgba(0, 0, 143, 0.9);
 }
 
 .footer {
