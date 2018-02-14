@@ -122,7 +122,7 @@ p {
 .linelink {
   position: relative;
   text-decoration: none;
-  color: #303f9f;
+  color: rgba(0, 0, 143, 0.9);
   z-index: 1;
 }
 
@@ -233,14 +233,6 @@ p {
 
 .about {
   text-align: center;
-}
-
-
-.content a {
-  color: rgba(0, 0, 143, 0.9);
-  z-index: -1;
-  text-decoration: none;
-  font-style: none;
 }
 
 .social-icons {
