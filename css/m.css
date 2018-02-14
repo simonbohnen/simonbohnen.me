@@ -60,6 +60,27 @@ html {
   margin: 0 0;
 }
 
+.img-circle {
+  max-width: 30vh;
+  max-height: 30vh;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 0px;
+  border: 0.5vh solid rgba(0, 0, 143, 0.9);
+  border-radius: 50%;
+}
+.img-circle:hover{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 0.5vh solid rgba(0, 0, 143, 0.9);
+  box-shadow: 0 1.5em 5em rgba(0, 0, 0, 0.5);
+}
+
 #name {
   font-weight: 600;
   font-size: 7vw;
@@ -99,26 +120,6 @@ p {
   text-align: justify;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .linelink {
   position: relative;
   text-decoration: none;
@@ -155,12 +156,26 @@ p {
   text-decoration: underline;
 }
 
+.social-icons {
+  color: black;
+  font-size: 8vw;
+  text-align: center;
+  line-height: 1%;
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-bottom: 5%;
+}
+
 .social-icons a, .social-icons i {
   color: rgba(0, 0, 143, 0.9);
 }
 
 .social-icons a:hover, .social-icons i:hover {
   transform: scale(1.2, 1.2);
+}
+
+.projPic:hover {
+  border: 0.5vh solid rgba(0, 0, 143, 0.9);
 }
 
 .ITMe, .projects{
@@ -172,186 +187,11 @@ p {
   padding-right: max(3vh, env(safe-area-inset-right));
 }
 
-
-.img-circle {
-  max-width: 30vh;
-  max-height: 30vh;
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  margin-bottom: 0px;
-  border: 0.5vh solid rgba(0, 0, 143, 0.9);
-  border-radius: 50%;
-}
-.img-circle:hover{
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  border: 0.5vh solid rgba(0, 0, 143, 0.9);
-  box-shadow: 0 1.5em 5em rgba(0, 0, 0, 0.5);
-}
-
-.projPic:hover {
-  border: 0.5vh solid rgba(0, 0, 143, 0.9);
-}
-
 .project {
   display: block;
   text-align: justify;
 }
 
-.afterProj {
-  width: 80%;
-  padding-top: 10vh;
-  margin: 0 auto;
-}
-
-.appIcon {
-  float: left;
-  max-width: 20%;
-  padding-right: 1vw;
-  padding-bottom: 0.5vh;
-}
-
-.projPic {
-  margin-right: 3vw;
-  border: 0.5vh solid black;
-}
-
-.aStoreBadge {
-  float: left;
-  padding-right: 1vw;
-  padding-bottom: 0.5vh;
-  max-width: 25vh;
-  max-height: 7,375vh;
-}
-
-
-
-.about {
-  text-align: center;
-}
-
-.social-icons {
-  color: black;
-  font-size: 8vw;
-  text-align: center;
-  line-height: 1%;
-  margin-top: 0px;
-  padding-top: 0px;
-  margin-bottom: 5%;
-}
-
-h1 {
-  font-weight: 900;
-  font-size: 7vw;
-  text-align: center;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-h2 {
-  font-weight: 700;
-  font-size: 2.3em;
-}
-
-h3 {
-  font-weight: 500;
-  font-size: 2em;
-}
-
-h4 {
-
-}
-
-h5 {
-
-}
-
-.sectionBreak {
-  width: 60%;
-  border-top: 1px solid black;
-  margin: 0 auto;
-}
-
-
-.Pics169 img {
-  max-width: 18vh;
-  max-height: 32vh;
-}
-
-.Pics916 img {
-  max-width: 32vh;
-  max-height: 18vh;
-}
-
-.nav {
-  background-color: rgba(0, 0, 143, 0.9);
-  overflow: hidden;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  text-align: center;
-}
-
-.topLink {
-
-}
-
-.nav a {
-  z-index: 3;
-  padding: 1vw 1vw;
-  display: inline-block;
-  color: rgba(255, 255, 255, 1);
-  text-align: center;
-  text-decoration: none;
-  font-size: 1.8em;
-  font-style: none;
-}
-
-.nav a:hover {
-  background-color: white;
-  color: rgba(0, 0, 143, 0.9);
-}
-
-.footer {
-  background-color: black;
-  overflow: hidden;
-    position: absolute;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-  text-align: center;
-  margin: 0 auto;
-   margin-bottom: 0px;
-   padding-bottom: 2vh;
-   padding-top: 2vh;
-}
-
-footer {
-  font-size: 1.5em;
-}
-div.fade {
-  display: none;
-}
-
-.e404 {
-  padding-top: 2vh;
-}
-
-.e404 h1 {
-  font-size: 10vh;
-}
-.anchor{
-   display:block;
-   height:5vh;
-   margin-top:-5vh;
-   visibility:hidden;
-}
 @media (max-width: 480px) {
   .about p {
     font-size: 1.5em;
@@ -383,4 +223,133 @@ div.fade {
      margin-top:-3.5vh;
      visibility:hidden;
   }
+}
+
+
+
+.about {
+  text-align: center;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 7vw;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 2.3em;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 2em;
+}
+
+.sectionBreak {
+  width: 60%;
+  border-top: 1px solid black;
+  margin: 0 auto;
+}
+
+.Pics169 img {
+  max-width: 18vh;
+  max-height: 32vh;
+}
+
+.Pics916 img {
+  max-width: 32vh;
+  max-height: 18vh;
+}
+
+.nav {
+  background-color: rgba(0, 0, 143, 0.9);
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.nav a {
+  z-index: 3;
+  padding: 1vw 1vw;
+  display: inline-block;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.8em;
+  font-style: none;
+}
+
+.nav a:hover {
+  background-color: white;
+  color: rgba(0, 0, 143, 0.9);
+}
+
+.footer {
+  background-color: black;
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 0px;
+  padding-bottom: 2vh;
+  padding-top: 2vh;
+  font-size: 1.5em;
+}
+
+div.fade {
+  display: none;
+}
+
+.e404 {
+  padding-top: 2vh;
+}
+
+.e404 h1 {
+  font-size: 10vh;
+}
+.anchor{
+   display:block;
+   height:5vh;
+   margin-top:-5vh;
+   visibility:hidden;
+}
+
+.afterProj {
+  width: 80%;
+  padding-top: 10vh;
+  margin: 0 auto;
+}
+
+.appIcon {
+  float: left;
+  max-width: 20%;
+  padding-right: 1vw;
+  padding-bottom: 0.5vh;
+}
+
+.projPic {
+  margin-right: 3vw;
+  border: 0.5vh solid black;
+}
+
+.aStoreBadge {
+  float: left;
+  padding-right: 1vw;
+  padding-bottom: 0.5vh;
+  max-width: 25vh;
+  max-height: 7,375vh;
+}
+
+.vcard {
+  font-size: 7vw;
 }
