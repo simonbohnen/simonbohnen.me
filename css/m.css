@@ -190,6 +190,11 @@ p {
 .project {
   display: block;
   text-align: justify;
+  margin-bottom: 7vh;
+}
+
+#lastProject {
+  margin-bottom: 2vh;
 }
 
 @media (max-width: 480px) {
