@@ -70,7 +70,7 @@ html {
   border: 0.5vh solid rgba(0, 0, 143, 0.9);
   border-radius: 50%;
 }
-.img-circle:hover{
+.img-circle:hover {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
