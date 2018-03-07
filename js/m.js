@@ -63,10 +63,9 @@ function drawNextCharacter(i) {
 }
 
 $(document).ready(function() {
-  $('div.fade').fadeIn(750).removeClass('div.fade');
+  //$('div.fade').fadeIn(750).removeClass('div.fade');
   window.onload = checkLinks();
   window.onresize = checkLinks();
-
 
   //Position "Hi, I'm Cem-Marvin." correctly.
   var test = $("#always-hidden");
@@ -79,4 +78,16 @@ $(document).ready(function() {
   setTimeout(function() {
     drawNextCharacter(0);
   }, 570);
+
+  $(window).scroll(function () {
+      console.log($(window).scrollTop());
+      var viewPortSize = $(window).height();
+      $(".fade").each(function() {
+        console.log(this.tagName);
+        if ($(window).scrollTop() + viewPortSize - 150 >= $(this).position().top) {
+            $(this).css('visibility', 'visible').hide().fadeIn();
+            $(this).removeClass('fade');
+        }
+      });
+  });
 });

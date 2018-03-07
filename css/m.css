@@ -60,6 +60,10 @@ html {
   margin: 0 0;
 }
 
+.hidden	{
+  visibility: hidden;
+}
+
 .img-circle {
   max-width: 30vh;
   max-height: 30vh;
@@ -311,8 +315,8 @@ h3 {
   font-size: 1.5em;
 }
 
-div.fade {
-  display: none;
+.fade {
+  display: hidden;
 }
 
 .e404 {
@@ -353,6 +357,10 @@ div.fade {
   padding-bottom: 0.5vh;
   max-width: 25vh;
   max-height: 7,375vh;
+}
+
+.startImage {
+  width: 20vw;
 }
 
 .vcard {
