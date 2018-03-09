@@ -53,14 +53,17 @@
 
 html {
   font-family: -apple-system, BlinkMacSystemFont, "San Francisco", 'Avenir Black', 'Avenir', 'Roboto', sans-serif;
-  margin: 0 auto;
-  padding: 5% 5% 0 5%;
   color: black;
   background: white;
 }
 
 body {
   margin: 0;
+}
+
+#content {
+  margin: 0 auto;
+  padding: 5% 5% 0 5%;
 }
 
 .hidden	{
@@ -253,7 +256,6 @@ h3 {
 
 .nav {
   background-color: var(--main-color);
-  /*background-color: rgba(88,86,244, 1);*/
   overflow: hidden;
   position: fixed;
   left: 0;
