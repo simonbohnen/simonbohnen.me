@@ -91,8 +91,8 @@ $(document).ready(function() {
 
   //Position "Hi, I'm Marvin." correctly.
   var test = $("#always-hidden");
-  headermarginleft = ($("#content").width() - test.width()) / 2;
-  $("#name").css({"margin-left": headermarginleft + "px"});
+  headermarginleft = 45 - (test.width() / $("#content").width()) * 45;
+  $("#name").css({"margin-left": headermarginleft + "vw"});
   console.log("text.width(): " + test.width()); // + " $(\"#headerdiv.width()\"): " + $("#headerdiv").width()
   test.html('');
 

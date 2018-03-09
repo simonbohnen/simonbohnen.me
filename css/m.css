@@ -59,6 +59,10 @@ html {
   background: white;
 }
 
+body {
+  margin: 0;
+}
+
 .hidden	{
   visibility: hidden;
 }
@@ -210,7 +214,7 @@ p {
   text-align: center;
   margin: 0 auto;
   height: auto;
-  padding: 1vh;
+  /*padding: 1vh;*/
 }
 
 h1 {
