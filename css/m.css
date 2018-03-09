@@ -60,6 +60,10 @@ html {
   margin: 0 0;
 }
 
+.hidden	{
+  visibility: hidden;
+}
+
 .img-circle {
   max-width: 30vh;
   max-height: 30vh;
@@ -70,7 +74,7 @@ html {
   border: 0.5vh solid rgba(0, 0, 143, 0.9);
   border-radius: 50%;
 }
-.img-circle:hover{
+.img-circle:hover {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -316,8 +320,8 @@ h3 {
   font-size: 1.5em;
 }
 
-div.fade {
-  display: none;
+.fade {
+  display: hidden;
 }
 
 .e404 {
@@ -358,6 +362,10 @@ div.fade {
   padding-bottom: 0.5vh;
   max-width: 25vh;
   max-height: 7,375vh;
+}
+
+.startImage {
+  width: 20vw;
 }
 
 .vcard {
