@@ -88,7 +88,7 @@ $(document).ready(function() {
   test.css({"font-size": "7vw"});
   headermarginleft = 50 - (test.width() / $("#headerdiv").width()) * 50;
   $("#name").css({"margin-left": headermarginleft + "vw"});
-  test.css({"display": "none"});
+  test.html('');
   console.log("text.width(): " + test.width() + " $(\"#headerdiv.width()\"): " + $("#headerdiv").width());
 
   setTimeout(function() {
