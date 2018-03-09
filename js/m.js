@@ -11,8 +11,8 @@
 
 function checkLinks() {
   $(".link").each(function() {
-    console.log("Checked Link: " + $(this).html());
-    console.log("Height: " + $(this).height());
+    /*console.log("Checked Link: " + $(this).html());
+    console.log("Height: " + $(this).height());*/
     const fontsize = $(this).css("font-size");
     if($(this).height() > 1.21 * fontsize.substring(0, fontsize.length - 2)) {
       $(this).removeClass("linelink");
@@ -81,15 +81,14 @@ $(document).ready(function() {
   //$('div.fade').fadeIn(750).removeClass('div.fade');
   setTimeout(checkLinks, 100);
   $(window).resize(checkLinks);
-  console.log('loaded');
+  //console.log('loaded');
 
-  //Position "Hi, I'm Cem-Marvin." correctly.
+  //Position "Hi, I'm Marvin." correctly.
   var test = $("#always-hidden");
-  test.css({"font-size": "7vw"});
-  headermarginleft = 50 - (test.width() / $("#headerdiv").width()) * 50;
-  $("#name").css({"margin-left": headermarginleft + "vw"});
-  test.html('');
+  headermarginleft = ($("#content").width() - test.width()) / 2;
+  $("#name").css({"margin-left": headermarginleft + "px"});
   console.log("text.width(): " + test.width() + " $(\"#headerdiv.width()\"): " + $("#headerdiv").width());
+  //test.html('');
 
   setTimeout(function() {
     drawNextCharacter(0);

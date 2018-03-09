@@ -59,11 +59,6 @@ html {
   background: white;
 }
 
-#headerdiv {
-  width: 100%;
-  margin: 0 0;
-}
-
 .hidden	{
   visibility: hidden;
 }
@@ -108,7 +103,7 @@ html {
 }
 
 #always-hidden {
-  visibility: hidden;
+  /*visibility: hidden;*/
   display: inline-block;
   font-weight: 600;
   font-size: 7vw;
