@@ -206,39 +206,6 @@ p {
   margin-bottom: 2vh;
 }
 
-@media (max-width: 480px) {
-  .about p {
-    font-size: 1.5em;
-  }
-  p {
-    font-size: 1.2em;
-  }
-  h1 {
-    font-size: 2.5em;
-  }
-  .nav a {
-    font-size: 4vw;
-  }
-  h2 {
-     font-size: 1.75em;
-  }
-  h3 {
-     font-size: 1.25em;
-  }
-  footer {
-    font-size: 0.75em;
-  }
-  .appIcon {
-    max-width: 33%;
-  }
-  .anchor{
-     display:block;
-     height:3.5vh;
-     margin-top:-3.5vh;
-     visibility:hidden;
-  }
-}
-
 .about {
   text-align: center;
   margin: 0 auto;
@@ -370,4 +337,37 @@ h3 {
 
 .vcard {
   font-size: 7vw;
+}
+
+@media (max-width: 480px) {
+  .about p {
+    font-size: 1.5em;
+  }
+  p {
+    font-size: 1.2em;
+  }
+  h1 {
+    font-size: 2.5em;
+  }
+  .nav a {
+    font-size: 4vw;
+  }
+  h2 {
+     font-size: 1.75em;
+  }
+  h3 {
+     font-size: 1.25em;
+  }
+  footer {
+    font-size: 0.75em;
+  }
+  .appIcon {
+    max-width: 33%;
+  }
+  .anchor{
+     display:block;
+     height:3.5vh;
+     margin-top:-3.5vh;
+     visibility:hidden;
+  }
 }

@@ -1,14 +1,3 @@
-/*$(".link").each(function() {
-  const fontsize = $(".normaltext").css("font-size");
-  if($(this).height() > 1.2 * fontsize.substring(0, fontsize.length - 2)) {
-    $(this).removeClass("lineLink");
-    $(this).addClass("multilineLink");
-  } else {
-    $(this).removeClass("multilineLink");
-    $(this).addClass("lineLink");
-  }
-});*/
-
 function checkLinks() {
   $(".link").each(function() {
     /*console.log("Checked Link: " + $(this).html());
@@ -77,6 +66,23 @@ function drawNextCharacter(i) {
   }
 }
 
+let threshold = 50;
+
+function fadeIn() {
+  //console.log($(window).scrollTop());
+  var viewPortSize = $(window).height();
+  $(".fade").each(function() {
+    //console.log(this.tagName);
+    var dies = $(this);
+    if ($(window).scrollTop() + viewPortSize - threshold >= dies.position().top) {
+        setTimeout(function() {
+          dies.css('visibility', 'visible').hide().show("slide", { direction: "left" }, 1500);;
+        }, 100);
+        dies.removeClass('fade');
+    }
+  });
+}
+
 $(document).ready(function() {
   //$('div.fade').fadeIn(750).removeClass('div.fade');
   setTimeout(checkLinks, 100);
@@ -87,22 +93,13 @@ $(document).ready(function() {
   var test = $("#always-hidden");
   headermarginleft = ($("#content").width() - test.width()) / 2;
   $("#name").css({"margin-left": headermarginleft + "px"});
-  console.log("text.width(): " + test.width() + " $(\"#headerdiv.width()\"): " + $("#headerdiv").width());
-  //test.html('');
+  console.log("text.width(): " + test.width()); // + " $(\"#headerdiv.width()\"): " + $("#headerdiv").width()
+  test.html('');
 
   setTimeout(function() {
     drawNextCharacter(0);
   }, 570);
 
-  $(window).scroll(function () {
-      console.log($(window).scrollTop());
-      var viewPortSize = $(window).height();
-      $(".fade").each(function() {
-        console.log(this.tagName);
-        if ($(window).scrollTop() + viewPortSize - 150 >= $(this).position().top) {
-            $(this).css('visibility', 'visible').hide().fadeIn();
-            $(this).removeClass('fade');
-        }
-      });
-  });
+  setTimeout(fadeIn, 100);
+  $(window).scroll(fadeIn);
 });
