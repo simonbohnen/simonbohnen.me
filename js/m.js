@@ -1,4 +1,4 @@
-$(".link").each(function() {
+/*$(".link").each(function() {
   const fontsize = $(".normaltext").css("font-size");
   if($(this).height() > 1.2 * fontsize.substring(0, fontsize.length - 2)) {
     $(this).removeClass("lineLink");
@@ -7,9 +7,12 @@ $(".link").each(function() {
     $(this).removeClass("multilineLink");
     $(this).addClass("lineLink");
   }
-});
+});*/
+
 function checkLinks() {
   $(".link").each(function() {
+    console.log("Checked Link: " + $(this).html());
+    console.log("Height: " + $(this).height());
     const fontsize = $(this).css("font-size");
     if($(this).height() > 1.21 * fontsize.substring(0, fontsize.length - 2)) {
       $(this).removeClass("linelink");
@@ -76,8 +79,9 @@ function drawNextCharacter(i) {
 
 $(document).ready(function() {
   //$('div.fade').fadeIn(750).removeClass('div.fade');
-  window.onload = checkLinks();
-  window.onresize = checkLinks();
+  setTimeout(checkLinks, 100);
+  $(window).resize(checkLinks);
+  console.log('loaded');
 
   //Position "Hi, I'm Cem-Marvin." correctly.
   var test = $("#always-hidden");

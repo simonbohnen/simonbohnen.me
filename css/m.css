@@ -48,7 +48,7 @@
 }
 
 :root {
-  --main-color: rgba(0, 135, 189, 1);
+  --main-color: rgba(25, 25, 112, 1);
 }
 
 html {
@@ -132,7 +132,7 @@ p {
 .linelink {
   position: relative;
   text-decoration: none;
-  color: var(--main-color);
+  color: black;
   z-index: 1;
 }
 
@@ -154,15 +154,25 @@ p {
 .linelink:focus:before {
   visibility: visible;
   transform: scaleX(1);
+  color: var(--main-color);
+}
+
+.linelink:hover {
+  color: var(--main-color);
 }
 
 .multilinelink {
   text-decoration: none;
-  color: var(--main-color);
+  color: black;
 }
 
 .multilinelink:hover {
   text-decoration: underline;
+  color: var(--main-color);
+}
+
+.arrow {
+  color: var(--main-color);
 }
 
 .social-icons {
@@ -285,8 +295,8 @@ h3 {
 }
 
 .nav {
-  /* background-color: var(--main-color);*/
-  background-color: rgba(25, 25, 112, 1);
+  background-color: var(--main-color);
+  /*background-color: rgba(88,86,244, 1);*/
   overflow: hidden;
   position: fixed;
   left: 0;
