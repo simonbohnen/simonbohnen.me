@@ -63,7 +63,7 @@ body {
 
 #content {
   margin: 0 auto;
-  padding: 5% 5% 0 5%;
+  padding: 10vh 5% 0 5%;
 }
 
 .hidden	{
@@ -206,7 +206,11 @@ p {
 .project {
   display: block;
   text-align: justify;
-  margin-bottom: 7vh;
+  margin: 1vh 1vh 0 1vh;
+}
+
+.projdescr {
+  padding-left: 1vh;
 }
 
 #lastProject {
@@ -272,7 +276,7 @@ h3 {
   color: rgba(255, 255, 255, 1);
   text-align: center;
   text-decoration: none;
-  font-size: 1.8em;
+  font-size: 3vh;
   font-style: none;
 }
 
@@ -346,6 +350,9 @@ h3 {
 }
 
 @media (max-width: 480px) {
+  #content {
+    padding-top: 5vh;
+  }
   .about p {
     font-size: 1.5em;
   }

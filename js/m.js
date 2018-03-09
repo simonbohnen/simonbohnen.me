@@ -3,7 +3,7 @@ function checkLinks() {
     /*console.log("Checked Link: " + $(this).html());
     console.log("Height: " + $(this).height());*/
     const fontsize = $(this).css("font-size");
-    if($(this).height() > 1.21 * fontsize.substring(0, fontsize.length - 2)) {
+    if($(this).height() > 1.3 * parseFloat(fontsize.substring(0, fontsize.length - 2))) {
       $(this).removeClass("linelink");
       $(this).addClass("multilinelink");
     } else {
@@ -13,11 +13,12 @@ function checkLinks() {
   });
 }
 
-var delays = [70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70];
+var delays = [70, 70, 70, 300, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70];
 var stringparts = ["H",
                    "Hi",
                    "Hi,",
-                   "Hi, I ",
+                   "Hi, ",
+                   "Hi, I",
                    "Hi, I'",
                    "Hi, I'm",
                    "Hi, I'm ",
@@ -76,7 +77,7 @@ function fadeIn() {
     var dies = $(this);
     if ($(window).scrollTop() + viewPortSize - threshold >= dies.position().top) {
         setTimeout(function() {
-          dies.css('visibility', 'visible').hide().show("slide", { direction: "left" }, 1500);;
+          dies.css('visibility', 'visible').hide().fadeIn();
         }, 100);
         dies.removeClass('fade');
     }
@@ -95,10 +96,13 @@ $(document).ready(function() {
   $("#name").css({"margin-left": headermarginleft + "vw"});
   console.log("text.width(): " + test.width()); // + " $(\"#headerdiv.width()\"): " + $("#headerdiv").width()
   test.html('');
+});
 
-  setTimeout(function() {
+$(window).ready(function() {
+  $("#name").ready(function() {
+    $("#flickering").html("|");
     drawNextCharacter(0);
-  }, 570);
+  });
 
   setTimeout(fadeIn, 100);
   $(window).scroll(fadeIn);
