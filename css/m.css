@@ -54,8 +54,7 @@
 html {
   font-family: -apple-system, BlinkMacSystemFont, "San Francisco", 'Avenir Black', 'Avenir', 'Roboto', sans-serif;
   margin: 0 auto;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding: 5% 5% 0 5%;
   color: black;
   background: white;
 }
@@ -97,12 +96,6 @@ html {
   text-align: left;
   margin-top: 0px;
   margin-bottom: 0px;
-}
-
-.about {
-  margin: 0 auto;
-  height: auto;
-  padding: 1vh;
 }
 
 .about p {
@@ -190,10 +183,6 @@ p {
   color: var(--main-color);
 }
 
-.content {
-  z-index: 1;
-}
-
 .social-icons a:hover, .social-icons i:hover {
   transform: scale(1.2, 1.2);
   z-index: 0;
@@ -255,10 +244,11 @@ p {
   }
 }
 
-
-
 .about {
   text-align: center;
+  margin: 0 auto;
+  height: auto;
+  padding: 1vh;
 }
 
 h1 {
@@ -298,7 +288,7 @@ h3 {
 .nav {
   background-color: var(--main-color);
   /*background-color: rgba(88,86,244, 1);*/
-  /*overflow: hidden;*/
+  overflow: hidden;
   position: fixed;
   left: 0;
   top: 0;
