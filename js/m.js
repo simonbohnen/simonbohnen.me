@@ -3,7 +3,7 @@ function checkLinks() {
     /*console.log("Checked Link: " + $(this).html());
     console.log("Height: " + $(this).height());*/
     const fontsize = $(this).css("font-size");
-    if($(this).height() > 1.3 * parseFloat(fontsize.substring(0, fontsize.length - 2))) {
+    if($(this).height() > 1.4 * parseFloat(fontsize.substring(0, fontsize.length - 2))) {
       $(this).removeClass("linelink");
       $(this).addClass("multilinelink");
     } else {

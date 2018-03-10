@@ -130,9 +130,10 @@ p {
   text-decoration: none;
   color: black;
   z-index: 0;
+  white-space: normal;
 }
 
-.linelink:before {
+.linelink::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -144,10 +145,11 @@ p {
   border-radius: 2px;
   transform: scaleX(0);
   transition: .25s linear;
+  white-space: nowrap;
 }
 
-.linelink:hover:before,
-.linelink:focus:before {
+.linelink:hover::before,
+.linelink:focus::before {
   visibility: visible;
   transform: scaleX(1);
   color: var(--main-color);
