@@ -273,10 +273,9 @@ h3 {
 
 .nav a, #githublink {
   z-index: 3;
-  padding: 1vw 1vw;
+  padding: 1vw 2vw;
   display: inline-block;
   color: rgba(255, 255, 255, 1);
-  text-align: center;
   text-decoration: none;
   font-size: 3vh;
   font-style: none;
