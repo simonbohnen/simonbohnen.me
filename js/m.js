@@ -13,44 +13,13 @@ function checkLinks() {
   });
 }
 
-var delays = [70, 70, 70, 300, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70];
-var stringparts = ["H",
-                   "Hi",
-                   "Hi,",
-                   "Hi, ",
-                   "Hi, I",
-                   "Hi, I'",
-                   "Hi, I'm",
-                   "Hi, I'm ",
-                   "Hi, I'm M",
-                   "Hi, I'm Ma",
-                   "Hi, I'm Mar",
-                   "Hi, I'm Marv",
-                   "Hi, I'm Marvi",
-                   "Hi, I'm Marvin",
-                   "Hi, I'm Marvin!"
-                  ];
+var delays = [70, 70, 70, 300, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70];
+var typeString = "Hi, I'm Simon."
 var flickerHTML = "<span id=\"flickering\">|</span>";
-
-/*
-
-"Hi, I'm <span style=\"white-space: nowrap\">C</span>",
-"Hi, I'm <span style=\"white-space: nowrap\">Ce</span>",
-"Hi, I'm <span style=\"white-space: nowrap\">Cem</span>",
-"Hi, I'm <span style=\"white-space: nowrap\">Cem-</span>",
-"Hi, I'm <span style=\"white-space: nowrap\">Cem-M</span>",
-"Hi, I'm <span style=\"white-space: nowrap\">Cem-Ma</span>",
-"Hi, I'm <span style=\"white-space: nowrap\">Cem-Mar</span>",
-"Hi, I'm <span style=\"white-space: nowrap\">Cem-Marv</span>",
-"Hi, I'm <span style=\"white-space: nowrap\">Cem-Marvi</span>",
-"Hi, I'm <span style=\"white-space: nowrap\">Cem-Marvin</span>",
-"Hi, I'm <span style=\"white-space: nowrap\">Cem-Marvin.</span>"
-
-*/
 
 function drawNextCharacter(i) {
   if (i < delays.length) {
-    $("#spell").html(stringparts[i]);
+    $("#spell").html(typeString.substring(0, i + 1));
     setTimeout(function() {
       drawNextCharacter(i + 1);
     }, delays[i]);
