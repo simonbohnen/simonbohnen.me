@@ -279,7 +279,6 @@ h3 {
 .nav a, #githublink {
   z-index: 3;
   padding: 1vw 2vw;
-  display: inline-block;
   color: rgba(255, 255, 255, 1);
   text-decoration: none;
   font-size: 3vh;
@@ -300,7 +299,12 @@ h3 {
   width: 100%;
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 0px;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 
 .fade {
