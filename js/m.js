@@ -59,8 +59,17 @@ $(document).ready(function() {
   $(window).resize(checkLinks);
   //console.log('loaded');
 
+  $(".GermanSpelling").each(function () {
+    typeString = "Hi, ich bin Simon.";
+    delays.push(70);
+    delays.push(70);
+    delays.push(70);
+    delays.push(70);
+  });
+
   //Position "Hi, I'm Marvin." correctly.
   var test = $("#always-hidden");
+  test.html(typeString);
   headermarginleft = 45 - (test.width() / $("#content").width()) * 45;
   $("#name").css({"margin-left": headermarginleft + "vw"});
   console.log("text.width(): " + test.width()); // + " $(\"#headerdiv.width()\"): " + $("#headerdiv").width()

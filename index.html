@@ -51,17 +51,17 @@
 		<div class='about'>
 			<a href="" class="vcard"><img class="img-circle" src="img/misc/profilesquare.jpg"></a>
 
-			<div id="name"><span id="spell"></span><span id="flickering"></span></div>
+			<div id="name" class="GermanSpelling"><span id="spell"></span><span id="flickering"></span></div>
 
 			<p>
-				I'm a <span id="age"></span>y/o student and developer from North Rhine-Westphalia, Germany. I've already worked on various IT projects and aim to start studying Computer Science this year.
+				Ich bin ein <span id="age"></span>-jähriger Abiturient des Maria-Wächtler-Gymnasiums in Nordrhein-Westfalen. Ich arbeite in meiner Freizeit häufig an IT-Projekten und beschäftige mich dabei mit den neuesten Technologien im Bereich der Digitalisierung. Ich strebe ein Informatikstudium an der TU München oder am HPI an.
 			</p>
 
 			<script>
 			var birth = new Date('2000-10-12');
 			var today = new Date();
 			var difference = today - birth;
-			var age = new Date(difference).getFullYear() - 1970
+			var age = new Date(difference).getFullYear() - 1970;
 			var span = document.getElementById('age');
 			span.innerHTML = age;
 			</script>
