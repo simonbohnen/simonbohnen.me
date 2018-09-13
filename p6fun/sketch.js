@@ -2,6 +2,7 @@ var pos, vel, orig;
 
 function setup() {
   createCanvas(800, 800);
+  //ssetAttributes('antialias', true);
   background(0);
   stroke(255);
   pos = createVector(500, 500);
@@ -16,4 +17,6 @@ function draw() {
   vel.add(f).normalize();
   pos.add(vel);
   point(pos.x, pos.y);
+  noFill();
+  ellipse(400, 400, 30);
 }

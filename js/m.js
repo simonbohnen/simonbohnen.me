@@ -14,8 +14,7 @@ function checkLinks() {
 }
 
 var delays = [70, 70, 70, 300, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70];
-var typeString = "Hi, I'm Simon."
-var flickerHTML = "<span id=\"flickering\">|</span>";
+var specialPoints = {7: "<span class=\"fade\">Hi, I'm </span>", 13: "<span class=\"fade\">Hi, I'm </span>Simon<span class=\"fade\">.</span>"};
 
 function drawNextCharacter(i) {
   if (i < delays.length) {
@@ -67,7 +66,7 @@ $(document).ready(function() {
     delays.push(70);
   });
 
-  //Position "Hi, I'm Marvin." correctly.
+  //Position "Hi, I'm Simon." correctly.
   var test = $("#always-hidden");
   test.html(typeString);
   headermarginleft = 45 - (test.width() / $("#content").width()) * 45;
