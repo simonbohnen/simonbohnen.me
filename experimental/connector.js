@@ -2,8 +2,6 @@ function draw() {
   $(".fade").css({"visibility": "hidden"});
 
   var c = document.querySelector("#tagCanvas");
-  c.width = 0.98 * window.innerWidth;
-  c.height = 0.98 * window.innerHeight;
   var ctx = c.getContext("2d");
   ctx.webkitImageSmoothingEnabled = true;
   ctx.translate(0.5, 0.5);
@@ -21,7 +19,7 @@ function draw() {
 
 
 
-  drawConnector(ctx, 400, 400, 600, 800, true);
+  drawConnector(ctx, 400, 400, 800, 600, false);
 
 
 
@@ -29,16 +27,16 @@ function draw() {
   //drawDiagonal(ctx, 400, 200, 500, 1, 1, 0, null);
 
   /*$(".GermanSpelling").each(function () {
-    typeString = "Hi, ich bin Simon.";
-    delays.push(70);
-    delays.push(70);
-    delays.push(70);
-    delays.push(70);
-  });*/
+  typeString = "Hi, ich bin Simon.";
+  delays.push(70);
+  delays.push(70);
+  delays.push(70);
+  delays.push(70);
+});*/
 }
 
 
-const iconRadius = 30;
+const iconRadius = 40;
 const TOP = 0;
 const RIGHT = 1;
 const BOTTOM = 2;
@@ -77,40 +75,53 @@ function drawConnector(ctx, sx, sy, ex, ey, diagFirst) {
   }
 }
 
-function drawCircle(ctx, x, y, progAng, startFrom) {
-  ctx.clearRect(x - iconRadius, y - iconRadius, iconRadius * 2, iconRadius * 2);
-  ctx.beginPath();
+var circleimg;
+
+function drawCircle(ctx, x, y, prog, startFrom, callback) {
+  ctx.save();
+  if(prog == 0) {
+    circleimg = document.getElementById("circle-img");
+  }
+  ctx.translate(x, y);
+  ctx.clearRect(-iconRadius, -iconRadius, iconRadius * 2, iconRadius * 2);
   switch(startFrom) {
     case TOP:
-    ctx.arc(x, y, iconRadius, 1.5 * Math.PI - progAng, 1.5 * Math.PI + progAng);
+    ctx.rotate(0.5 * Math.PI);
     break;
     case RIGHT:
-    ctx.arc(x, y, iconRadius, -progAng, progAng);
+    ctx.rotate(Math.PI);
     break;
     case BOTTOM:
-    ctx.arc(x, y, iconRadius, 0.5 * Math.PI - progAng, 0.5 * Math.PI + progAng);
-    break;
-    case LEFT:
-    ctx.arc(x, y, iconRadius, Math.PI - progAng, Math.PI + progAng);
+    ctx.rotate(1.5 * Math.PI);
     break;
     case TR:
-    ctx.arc(x, y, iconRadius, 1.75 * Math.PI - progAng, 1.75 * Math.PI + progAng);
+    ctx.rotate(0.75 * Math.PI);
     break;
     case BR:
-    ctx.arc(x, y, iconRadius, 0.25 * Math.PI - progAng, 0.25 * Math.PI * progAng);
+    ctx.rotate(1.25 * Math.PI);
     break;
     case BL:
-    ctx.arc(x, y, iconRadius, 0.75 * Math.PI - progAng, 0.75 * Math.PI + progAng);
+    ctx.rotate(1.75 * Math.PI);
     break;
     case TL:
-    ctx.arc(x, y, iconRadius, 1.25 * Math.PI - progAng, 1.25 * Math.PI + progAng);
+    ctx.rotate(0.25 * Math.PI);
     break;
   }
-  ctx.stroke();
-  if(progAng < Math.PI) {
+  //ctx.rect(-iconRadius, -iconRadius, iconRadius * 2, iconRadius * 2);
+  //ctx.drawImage(circleimg, -iconRadius, -iconRadius);
+  ctx.drawImage(circleimg, 0, 0, prog, iconRadius * 2, -iconRadius, -iconRadius, prog, iconRadius * 2);
+  /*ctx.rect(-iconRadius, -iconRadius, prog, iconRadius * 2);
+  ctx.fill();*/
+  ctx.restore();
+  if(prog < 2 * iconRadius) {
     requestAnimationFrame(function() {
-      drawCircle(ctx, x, y, progAng + drawspeed / 50, startFrom);
+      drawCircle(ctx, x, y, prog + drawspeed / 2.0, startFrom, callback);
     });
+  } else {
+    circleInit = false;
+    if(callback) {
+      callback();
+    }
   }
 }
 
@@ -166,9 +177,9 @@ function drawHori(ctx, sx, sy, ex, dirx, progx, callback) {
   //ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
   nextX = sx + dirx * progx;
   if((dirx == 1 && nextX < ex) || (dirx == -1 && nextX > ex)) {
-  ctx.moveTo(sx, sy);
-  ctx.lineTo(nextX, sy);
-  ctx.stroke();
+    ctx.moveTo(sx, sy);
+    ctx.lineTo(nextX, sy);
+    ctx.stroke();
     requestAnimationFrame(function() {
       drawHori(ctx, sx, sy, ex, dirx, progx + drawspeed, callback);
     });
