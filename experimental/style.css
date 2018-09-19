@@ -5,6 +5,11 @@ body {
   padding: 0;
 }
 
+.socialIcon {
+  position: absolute;
+  border: 3px solid #ffffff;
+}
+
 #title-wrapper {
   font-size: 7em;
   color: #ffffff;
@@ -12,12 +17,13 @@ body {
   top: 50%;
   -ms-transform: translate(0%, -50%);
   transform: translate(0%, -50%);
+  overflow: hidden;
 }
 
 .measure {
   font-size: 7em;
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
   position: absolute;
   height: auto;
   width: auto;

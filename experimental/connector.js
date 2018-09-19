@@ -1,42 +1,24 @@
 function draw() {
-  $(".fade").css({"visibility": "hidden"});
+  $("#title-wrapper").html("Simon");
+  beforeWidth = 0;
+  positionTitle();
 
-  var c = document.querySelector("#tagCanvas");
-  var ctx = c.getContext("2d");
-  ctx.webkitImageSmoothingEnabled = true;
+    const c = document.querySelector("#tagCanvas");
+    const ctx = c.getContext("2d");
+    ctx.webkitImageSmoothingEnabled = true;
   ctx.translate(0.5, 0.5);
   ctx.strokeStyle = '#ffffff';
-  ctx.lineWidth = 2;
-  //ctx.rect(200, 100, 5, 5);
-  //ctx.rect(200, 500, 10, 10);
-  /*ctx.rect(500, 500, 10, 10);
-  ctx.rect(500, 400, 10, 10);
-  ctx.rect(800, 500, 10, 10);
-  ctx.rect(500, 700, 10, 10);*/
-  var circleimg = document.getElementById("circle-img");
-  //ctx.drawImage(circleimg, 100, 100);
+  ctx.lineCap="round";
 
-
-
-
-  drawConnector(ctx, 400, 400, 800, 600, false);
-
-
+  drawConnector(ctx, 400, 400, 600, 800, false);
 
   //drawConnector(ctx, 400, 300, 500, 700, true);
   //drawDiagonal(ctx, 400, 200, 500, 1, 1, 0, null);
 
-  /*$(".GermanSpelling").each(function () {
-  typeString = "Hi, ich bin Simon.";
-  delays.push(70);
-  delays.push(70);
-  delays.push(70);
-  delays.push(70);
-});*/
+  //Icons: Mail, Github, Twitter, LinkedIn, Xing
 }
 
-
-const iconRadius = 40;
+const iconRadius = 38;
 const TOP = 0;
 const RIGHT = 1;
 const BOTTOM = 2;
@@ -47,43 +29,44 @@ const BL = 6;
 const TL = 7;
 
 const drawspeed = 7;
-const sqrt2 = 0.5;
 
-function drawConnector(ctx, sx, sy, ex, ey, diagFirst) {
-  var sideways = Math.abs(ex - sx) > Math.abs(sy - ey);
-  var diry = ey > sy ? 1 : -1;
-  var dirx = ex > sx ? 1 : -1;
-  if(diagFirst) {
-    var endDiagX = sideways ? sx + dirx * Math.abs(ey - sy) : ex;
-    drawDiagonal(ctx, sx, sy, endDiagX, dirx, diry, 0, function() {
+function drawConnector(ctx, sx, sy, ex, ey, diagFirst, iconId) {
+    const sideways = Math.abs(ex - sx) > Math.abs(sy - ey);
+    const diry = ey > sy ? 1 : -1;
+    const dirx = ex > sx ? 1 : -1;
+    if(diagFirst) {
+      const endDiagX = sideways ? sx + dirx * Math.abs(ey - sy) : ex;
+      drawDiagonal(ctx, sx, sy, endDiagX, dirx, diry, 0, function() {
       if(sideways) {
-        drawHori(ctx, endDiagX, ey, ex - dirx * iconRadius, dirx, 0, function() { drawCircle(ctx, ex, ey, 0, dirx == 1 ? LEFT : RIGHT) });
+        drawHori(ctx, endDiagX, ey, ex - dirx * iconRadius, dirx, 0, function() { drawCircle(ctx, ex, ey, 0, dirx === 1 ? LEFT : RIGHT, iconId) });
       } else {
-        drawVert(ctx, ex, sy + diry * Math.abs(ex - sx), ey - diry * iconRadius, diry, 0, function() { drawCircle(ctx, ex, ey, 0, diry == 1 ? TOP : BOTTOM) });
+        drawVert(ctx, ex, sy + diry * Math.abs(ex - sx), ey - diry * iconRadius, diry, 0, function() { drawCircle(ctx, ex, ey, 0, diry === 1 ? TOP : BOTTOM, iconId) });
       }
     });
   } else {
     if(sideways) {
-      var midX = ex - dirx * Math.abs(ey - sy);
-      drawHori(ctx, sx, sy, midX, dirx, 0, function() {
-        drawDiagonal(ctx, midX, sy, ex - dirx * iconRadius * sqrt2, dirx, diry, 0, function() { drawCircle(ctx, ex, ey, 0, dirx == 1 ? (diry == 1 ? BL : TL) : (diry == 1 ? BR : TR)) });
+        const midX = ex - dirx * Math.abs(ey - sy);
+        drawHori(ctx, sx, sy, midX, dirx, 0, function() {
+        drawDiagonal(ctx, midX, sy, ex - dirx * iconRadius * sqrt2 / 2, dirx, diry, 0, function() { drawCircle(ctx, ex, ey, 0, dirx === 1 ? (diry === 1 ? TL : BL) : (diry === 1 ? TR : BR), iconId) });
       });
-      //todo ende wird gecleart von kreis....
     } else {
-
+        const midY = ey - diry * Math.abs(ex - sx);
+        drawVert(ctx, sx, sy, midY, diry, 0, function() {
+        drawDiagonal(ctx, sx, midY, ex - dirx * iconRadius * sqrt2 / 2, dirx, diry, 0, function() { drawCircle(ctx, ex, ey, 0, dirx === 1 ? (diry === 1 ? TL : BL) : (diry === 1 ? TR : BR), iconId) });
+      });
+      //todo vertikal, dann dia
     }
   }
 }
 
-var circleimg;
+let circleimg;
 
-function drawCircle(ctx, x, y, prog, startFrom, callback) {
+function drawCircle(ctx, x, y, prog, startFrom, callback, iconId) {
   ctx.save();
-  if(prog == 0) {
+  if(prog === 0) {
     circleimg = document.getElementById("circle-img");
   }
   ctx.translate(x, y);
-  ctx.clearRect(-iconRadius, -iconRadius, iconRadius * 2, iconRadius * 2);
   switch(startFrom) {
     case TOP:
     ctx.rotate(0.5 * Math.PI);
@@ -107,45 +90,30 @@ function drawCircle(ctx, x, y, prog, startFrom, callback) {
     ctx.rotate(0.25 * Math.PI);
     break;
   }
-  //ctx.rect(-iconRadius, -iconRadius, iconRadius * 2, iconRadius * 2);
-  //ctx.drawImage(circleimg, -iconRadius, -iconRadius);
+  ctx.clearRect(-iconRadius, -iconRadius, iconRadius * 2, iconRadius * 2);
   ctx.drawImage(circleimg, 0, 0, prog, iconRadius * 2, -iconRadius, -iconRadius, prog, iconRadius * 2);
-  /*ctx.rect(-iconRadius, -iconRadius, prog, iconRadius * 2);
-  ctx.fill();*/
   ctx.restore();
   if(prog < 2 * iconRadius) {
     requestAnimationFrame(function() {
       drawCircle(ctx, x, y, prog + drawspeed / 2.0, startFrom, callback);
     });
   } else {
-    circleInit = false;
-    if(callback) {
-      callback();
-    }
+    showIcon(iconId);
   }
 }
 
-function drawSecondPart(ctx, sx, sy, ex, ey, dirx, diry, diagFirst, sideways, endDiagX) {
-  if(diagFirst) {
-    if(sideways) {
-      drawHori(ctx, endDiagX, ey, ex, dirx, 0, null)
-    } else {
-      drawVert(ctx, ex, sy - ex + sx, ey, diry, 0, null);
-    }
-  } else {
-
-  }
-}
+const sqrt2 = Math.sqrt(2);
 
 function drawDiagonal(ctx, sx, sy, ex, dirx, diry, progx, callback) {
-  //ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-  var nextX = sx + dirx * progx;
-  if((dirx == 1 && nextX < ex) || (dirx == -1 && nextX > ex)) {
+  ctx.lineWidth = 1;
+    const nextX = sx + dirx * progx;
+    if((dirx === 1 && nextX < ex) || (dirx === -1 && nextX > ex)) {
+    ctx.clearRect(sx, sy, ex - sx, ex - sx);
     ctx.moveTo(sx, sy);
     ctx.lineTo(nextX, sy + diry * progx);
     ctx.stroke();
     requestAnimationFrame(function() {
-      drawDiagonal(ctx, sx, sy, ex, dirx, diry, progx + drawspeed, callback);
+      drawDiagonal(ctx, sx, sy, ex, dirx, diry, progx + drawspeed / sqrt2, callback);
     });
   } else {
     ctx.moveTo(sx, sy);
@@ -156,9 +124,9 @@ function drawDiagonal(ctx, sx, sy, ex, dirx, diry, progx, callback) {
 }
 
 function drawVert(ctx, sx, sy, ey, diry, progy, callback) {
-  //ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-  var nextY = sy + diry * progy;
-  if((diry == 1 && nextY < ey) || (diry == -1 && nextY > ey)) {
+  ctx.lineWidth = 2;
+    const nextY = sy + diry * progy;
+    if((diry === 1 && nextY < ey) || (diry === -1 && nextY > ey)) {
     ctx.moveTo(sx, sy);
     ctx.lineTo(sx, nextY);
     ctx.stroke();
@@ -174,9 +142,9 @@ function drawVert(ctx, sx, sy, ey, diry, progy, callback) {
 }
 
 function drawHori(ctx, sx, sy, ex, dirx, progx, callback) {
-  //ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-  nextX = sx + dirx * progx;
-  if((dirx == 1 && nextX < ex) || (dirx == -1 && nextX > ex)) {
+  ctx.lineWidth = 2;
+  let nextX = sx + dirx * progx;
+  if((dirx === 1 && nextX < ex) || (dirx === -1 && nextX > ex)) {
     ctx.moveTo(sx, sy);
     ctx.lineTo(nextX, sy);
     ctx.stroke();

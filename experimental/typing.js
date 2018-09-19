@@ -2,27 +2,34 @@ WebFont.load({
   google: {
     families: ['Orbitron']
   },
-  active: measure
+  active: init
 });
 
-function measure() {
+let beforeWidth, simonWidth;
+
+$(window).resize(positionTitle);
+
+function positionTitle() {
+  let headermarginleft = ($("body").width() - simonWidth) / 2 - beforeWidth;
+  $("#title-wrapper").css({"left": headermarginleft + "px"});
+}
+
+function init() {
   $(function() {
-    var c = document.querySelector("#tagCanvas");
-    c.width = 0.98 * window.innerWidth;
+      const c = document.querySelector("#tagCanvas");
+      c.width = 0.98 * window.innerWidth;
     c.height = 0.98 * window.innerHeight;
 
-    //Position "Hi, I'm Simon." correctly.
-    var measureBefore = document.getElementById("measureBefore");
-    var measureSimon = document.getElementById("measureSimon");
-    headermarginleft = 50 - measureSimon.clientWidth / $("#tagCanvas").width() * 50 - measureBefore.clientWidth / $("#tagCanvas").width() * 100;
-    $("#title-wrapper").css({"margin-left": headermarginleft + "vw"});
+    beforeWidth = document.getElementById("measureBefore").clientWidth;
+    simonWidth = document.getElementById("measureSimon").clientWidth;
+    positionTitle();
 
     drawNextCharacter(0);
   });
 }
 
-var delays = [70, 70, 70, 300, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70];
-var typeString = "Hi, I'm Simon.";
+const delays = [70, 70, 70, 300, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70];
+const typeString = "Hi, I'm Simon.";
 
 function drawNextCharacter(i) {
   if (i < delays.length) {
@@ -31,8 +38,8 @@ function drawNextCharacter(i) {
       drawNextCharacter(i + 1);
     }, delays[i]);
   } else {
-    var leng = 300;
-    $("#flickering").animate({color: "#000"}, leng)
+      const leng = 300;
+      $("#flickering").animate({color: "#000"}, leng)
                     .animate({color: "#fff"}, leng)
                     .animate({color: "#000"}, leng)
                     .animate({color: "#fff"}, leng)
