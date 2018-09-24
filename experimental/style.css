@@ -1,41 +1,48 @@
 body {
-  background-color: #000000;
-  font-family: 'Orbitron', sans-serif;
-  margin: 0;
-  padding: 0;
+    background-color: #000000;
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
 }
 
 .socialIcon {
-  position: absolute;
-  border: 3px solid #ffffff;
+    position: absolute;
+    font-size: 3em;
+    text-align: center;
+    border-radius: 50%;
+    color: #000000;
+}
+
+.socialIcon:hover {
+    cursor: pointer;
 }
 
 #title-wrapper {
-  font-size: 7em;
-  color: #ffffff;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translate(0%, -50%);
-  transform: translate(0%, -50%);
-  overflow: hidden;
+    font-size: 7em;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+    overflow: hidden;
 }
 
 .measure {
-  font-size: 7em;
-  left: 0;
-  top: 0;
-  position: absolute;
-  height: auto;
-  width: auto;
-  white-space: nowrap;
-  visibility: hidden;
+    font-size: 7em;
+    left: 0;
+    top: 0;
+    position: absolute;
+    height: auto;
+    width: auto;
+    white-space: nowrap;
+    visibility: hidden;
 }
 
 #tagCanvas {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 #circle-img {
-  visibility: hidden;
-  position: absolute;
+    visibility: hidden;
+    position: absolute;
 }
