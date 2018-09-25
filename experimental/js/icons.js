@@ -2,7 +2,7 @@ function showIcon(x, y, iconId, href) {
     let canv = document.querySelector("#tagCanvas");
     $("body").append('<div class="socialIcon" id="' + iconId + '"><a class="fab ' + iconId + '"></a></div>');
     const icon = $("#" + iconId);
-    icon.css({"left": (x - iconRadius) + "px", "top": (y - iconRadius) + "px", "width": (iconRadius * 2) + "px", "height": (iconRadius * 2) + "px", "line-height": (iconRadius * 2) + "px"});
+    icon.css({"left": (x - iconRadius) + "px", "top": (y - iconRadius) + "px", "width": (iconRadius * 2) + "px", "height": (iconRadius * 2) + "px"});
     icon.animate({"color": "#ffffff"}, 300);
     let oldCanv = cloneCircle(canv, x, y);
 
@@ -21,7 +21,7 @@ function showIcon(x, y, iconId, href) {
         });
     });
     icon.click(function() {
-        location = href;
+        window.open(href, '_blank');;
     });
 }
 

@@ -23,6 +23,14 @@ function init() {
         beforeWidth = document.getElementById("measureBefore").clientWidth;
         simonWidth = document.getElementById("measureSimon").clientWidth;
         positionTitle();
+        $("#flickering").html("|");
+
+        var birth = new Date('2000-10-12');
+        var today = new Date();
+        var difference = today - birth;
+        var age = new Date(difference).getFullYear() - 1970;
+        var span = document.getElementById('age');
+        span.innerHTML = age;
 
         drawNextCharacter(0);
     });
