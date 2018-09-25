@@ -23,6 +23,7 @@ function draw() {
     ctx.fillStyle = '#ffffff';
     ctx.lineCap="round";
 
+    $("#subtitle").fadeIn();
     drawNextConnector(0);
 
     //drawConnector(ctx, 400, 300, 500, 700, true);
