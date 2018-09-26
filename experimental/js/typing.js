@@ -24,6 +24,11 @@ function init() {
         simonWidth = document.getElementById("measureSimon").clientWidth;
         positionTitle();
         $("#flickering").html("|");
+        if(location.href.includes("de")) {
+            typeString = "Hi, ich bin Simon.";
+        } else {
+            typeString = "Hi, I'm Simon.";
+        }
 
         var birth = new Date('2000-10-12');
         var today = new Date();
@@ -36,15 +41,14 @@ function init() {
     });
 }
 
-const delays = [70, 70, 70, 300, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70];
-const typeString = "Hi, I'm Simon.";
+let typeString;
 
 function drawNextCharacter(i) {
-    if (i < delays.length) {
+    if (i < typeString.length) {
         $("#spell").html(typeString.substring(0, i + 1));
         setTimeout(function() {
             drawNextCharacter(i + 1);
-        }, delays[i]);
+        }, i === 3 ? 300 : 70);
     } else {
         const leng = 300;
         $("#flickering").animate({color: "#000"}, leng)
@@ -53,7 +57,7 @@ function drawNextCharacter(i) {
             .animate({color: "#fff"}, leng)
             .animate({color: "#000"}, leng);
         setTimeout(function(){
-            $("#title-wrapper").html("<span class=\"fade\">Hi, I'm </span><span>Simon</span><span class=\"fade\">.</span>");
+            $("#title-wrapper").html("<span class=\"fade\">" + $("#measureBefore").html() + "</span><span>Simon</span><span class=\"fade\">.</span>");
             $(".fade").animate({color: "#000"}, leng, "swing", waitForDraw);
         }, 2000);
     }
