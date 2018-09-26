@@ -26,6 +26,8 @@ function init() {
         $("#flickering").html("|");
         if(location.href.includes("de")) {
             typeString = "Hi, ich bin Simon.";
+            config[1].href = "http://xing.to/SimonBohnen";
+            config[1].iconId = "fa-xing";
         } else {
             typeString = "Hi, I'm Simon.";
         }
