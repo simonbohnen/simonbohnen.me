@@ -7,7 +7,7 @@ WebFont.load({
 
 let beforeWidth, simonWidth;
 
-$(window).resize(positionTitle);
+$(window).resize(positionTitle); //todo canvas redraw!
 
 function positionTitle() {
     let headermarginleft = ($("body").width() - simonWidth) / 2 - beforeWidth;
