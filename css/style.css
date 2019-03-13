@@ -1,0 +1,297 @@
+/** Ultra Light */
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 100;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff2");
+}
+
+/** Thin */
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 200;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff2");
+}
+
+/** Regular */
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 400;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff2");
+}
+
+/** Medium */
+@font-face {
+    font-family: "San Francisco";
+    font-weight: normal;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff2");
+}
+
+/** Semi Bold */
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 500;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff2");
+}
+
+/** Bold */
+@font-face {
+    font-family: "San Francisco";
+    font-weight: bold;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff2");
+}
+
+/** heavy */
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 600;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-heavy-webfont.woff2");
+}
+
+:root {
+    --main-color: rgb(0, 31, 39); /*(1, 68, 33); /*(0, 78, 56); /*(0, 73, 83, 1);*/
+}
+
+html {
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", 'Avenir Black', 'Avenir', 'Roboto', sans-serif;
+    color: black;
+    background: white;
+}
+
+body {
+    margin: 0;
+}
+
+#content {
+    margin: 0 auto;
+    padding: 7vh 5% 0 5%;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.img-circle {
+    max-width: 30vh;
+    max-height: 30vh;
+    display: block;
+    text-align: center;
+    margin: 0 auto 0;
+    border: 0.5vh solid var(--main-color);
+    border-radius: 50%;
+}
+
+.img-circle:hover {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 0.5vh solid var(--main-color);
+    box-shadow: 0 0 0.5em 0.1em rgba(0, 0, 0, 0.5);
+}
+
+#name {
+    font-weight: 600;
+    font-size: 7vw;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.about p {
+    font-weight: 200;
+    font-size: 2.5em;
+    text-align: center;
+    /*margin-top: 1vh;*/
+    padding-left: max(3vw, env(safe-area-inset-left));
+    padding-right: max(3vw, env(safe-area-inset-right));
+}
+
+#always-hidden {
+    /*visibility: hidden;*/
+    display: inline-block;
+    font-weight: 600;
+    font-size: 7vw;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+p {
+    font-weight: 300;
+    font-size: 1.5em;
+    text-align: justify;
+}
+
+.social-icons {
+    color: black;
+    font-size: 8vw;
+    text-align: center;
+    line-height: 1%;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 5%;
+}
+
+.social-icons a, .social-icons i {
+    color: var(--main-color);
+}
+
+.social-icons a:hover, .social-icons i:hover {
+    transform: scale(1.2, 1.2);
+    z-index: 0;
+}
+
+.project {
+    display: block;
+    text-align: justify;
+    margin: 1vh 1vh 0 1vh;
+}
+
+.about {
+    text-align: center;
+    margin: 0 auto;
+    height: auto;
+    /*padding: 1vh;*/
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 7vw;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 2.3em;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 2em;
+}
+
+.Pics169 img {
+    max-width: 18vh;
+    max-height: 32vh;
+}
+
+.Pics916 img {
+    max-width: 32vh;
+    max-height: 18vh;
+}
+
+.nav {
+    background-color: var(--main-color);
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    text-align: center;
+    z-index: 1;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100%;
+}
+
+.nav a, #githublink {
+    z-index: 3;
+    padding: 1vw 2vw;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    font-size: 3vh;
+    font-style: normal;
+}
+
+.nav a:hover, #githublink:hover {
+    background-color: white;
+    color: var(--main-color);
+}
+
+.footer {
+    background-color: var(--main-color);
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 1;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.fade {
+    visibility: hidden;
+}
+
+.e404 {
+    padding-top: 2vh;
+}
+
+.e404 h1 {
+    font-size: 10vh;
+}
+
+.anchor {
+    display: block;
+    height: 5vh;
+    margin-top: -5vh;
+    visibility: hidden;
+}
+
+#header {
+    margin-bottom: 80px;
+}
+
+@media (max-width: 480px) {
+    #content {
+        padding-top: 5vh;
+    }
+
+    .about p {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1.2em;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .nav a {
+        font-size: 4vw;
+    }
+
+    h2 {
+        font-size: 1.75em;
+    }
+
+    h3 {
+        font-size: 1.25em;
+    }
+
+    footer {
+        font-size: 0.75em;
+    }
+
+    .anchor {
+        display: block;
+        height: 3.5vh;
+        margin-top: -3.5vh;
+        visibility: hidden;
+    }
+}
+
