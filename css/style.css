@@ -66,10 +66,6 @@ body {
     padding: 7vh 5% 0 5%;
 }
 
-.hidden {
-    visibility: hidden;
-}
-
 .img-circle {
     max-width: 30vh;
     max-height: 30vh;
@@ -220,13 +216,6 @@ h3 {
     font-size: 10vh;
 }
 
-.anchor {
-    display: block;
-    height: 5vh;
-    margin-top: -5vh;
-    visibility: hidden;
-}
-
 #header {
     margin-bottom: 80px;
 }
@@ -262,13 +251,6 @@ h3 {
 
     footer {
         font-size: 0.75em;
-    }
-
-    .anchor {
-        display: block;
-        height: 3.5vh;
-        margin-top: -3.5vh;
-        visibility: hidden;
     }
 }
 
