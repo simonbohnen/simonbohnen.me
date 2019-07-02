@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XYZ</title>
+    <link rel="stylesheet" href="https://openlayers.org/en/v5.3.0/css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+
+</head>
+<body>
+<div id="map" class="map"></div>
+<script>
+    import Map from 'ol/Map.js';
+    import View from 'ol/View.js';
+    import TileLayer from 'ol/layer/Tile.js';
+    import XYZ from 'ol/source/XYZ.js';
+
+
+    var map = new Map({
+        target: 'map',
+        layers: [
+            new TileLayer({
+                source: new XYZ({
+                    url: 'https://{a-c}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png' +
+                        '?apikey=Your API key from http://www.thunderforest.com/docs/apikeys/ here'
+                })
+            })
+        ],
+        view: new View({
+            center: [-472202, 7530279],
+            zoom: 12
+        })
+    });
+</script>
+</body>
+</html>
