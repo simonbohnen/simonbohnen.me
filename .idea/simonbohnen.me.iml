@@ -13,5 +13,6 @@
     <orderEntry type="library" name="webfont" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="ol" level="application" />
+    <orderEntry type="library" name="ol-layerswitcher" level="application" />
   </component>
 </module>

@@ -11,6 +11,7 @@ html, body {
     height: 100%;
 }
 
+/* Style für das Popup. Ich weiß leider nicht mehr, wo ich den Code her habe, aber den hab ich nicht selber geschrieben. */
 .ol-popup {
     position: absolute;
     min-width: 180px;
@@ -39,7 +40,6 @@ html, body {
     margin-left: -10px;
 }
 .ol-popup:before {
-    border-top-color: #cccccc;
     border-width: 11px;
     left: 48px;
     margin-left: -11px;

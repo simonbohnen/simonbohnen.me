@@ -1,70 +1,66 @@
-/*const map = new ol.Map({
-    target: 'map',
-    layers: [
-        new TileLayer({
-            source: new XYZ({
-                url: 'https://{a-c}.tile.opentopomap.org/{z}/{x}/{y}.png'
-            })
-        })
-    ],
-    view: new ol.View({
-        center: ol.proj.fromLonLat([37.41, 8.82]),
-        zoom: 4
-    })
-});*/
-
 (function() {
-    var styles = {
-        'Point': [new ol.style.Style({
-            image: new ol.style.Circle({
-                radius: 8,
-                fill: new ol.style.Fill({
-                    color: [255, 255, 255, 0.3]
-                }),
-                stroke: new ol.style.Stroke({color: '#cb1d1d', width: 2})
-            })
-        })],
-        'LineString': [new ol.style.Style({
-            stroke: new ol.style.Stroke({
-                color: 'green',
-                width: 1
-            })
-        })],
-        'Polygon': [new ol.style.Style({
-            stroke: new ol.style.Stroke({
-                color: 'blue',
-                lineDash: [4],
-                width: 3
-            }),
-            fill: new ol.style.Fill({
-                color: 'rgba(0, 0, 255, 0.1)'
-            })
-        })],
-        'Circle': [new ol.style.Style({
-            stroke: new ol.style.Stroke({
-                color: 'red',
-                width: 2
-            }),
-            fill: new ol.style.Fill({
-                color: 'rgba(255,0,0,0.2)'
-            })
-        })]
-    };
 
-    var styleFunction = function(feature, resolution) {
-        return styles[feature.getGeometry().getType()];
-    };
-
-    var geojson_layer = new ol.layer.Vector({
+    const heatmapLayer = new ol.layer.Heatmap({
         source: new ol.source.Vector({
-            url: 'file.geojson',
+            url: 'data/heatmap.json',
+            format: new ol.format.GeoJSON()
+        }),
+        blur: 30,
+        radius: 15,
+        gradient: [
+            "#FFEE55",
+            "#DD3300"
+        ],
+        //Heatmap soll erst ab Zoomlevel 80 oder höher angezeigt werden
+        maxResolution: 80
+    });
+
+    let styleFunction = function (feature, resolution) {
+        if(feature.getGeometry() instanceof ol.geom.GeometryCollection) {
+            let geometries = feature.getGeometry().getGeometries();
+            const point = geometries[0];
+            const polygon = geometries[1];
+
+            //Style, der das Feuer-Icon anzeigt
+            const pointStyle = new ol.style.Style({
+                geometry: point,
+                image: new ol.style.Icon({
+                    src: "fire_icon.png",
+                    anchor: [0.5, 0.5],
+                    anchorXUnits: 'fraction',
+                    anchorYUnits: 'fraction',
+                    scale: 0.2
+                })
+            });
+
+            //Umriss des Polygons
+            const polygonStyle = new ol.style.Style({
+                geometry: polygon,
+                stroke: new ol.style.Stroke({
+                    color: "#FF0000"
+                })
+            });
+
+            return [pointStyle, polygonStyle];
+        }
+    };
+
+    //Der Layer, der die Umrisse, Marker und weiter Inforationen zu den Feuern enthält
+    const geojson_layer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+            url: 'data/majorIncidents.json',
             format: new ol.format.GeoJSON()
         }),
         style: styleFunction
     });
 
-    var map = new ol.Map({
+    const map = new ol.Map({
         target: 'map',
+        //Maßstab ist manchmal ganz hilfreich
+        controls: ol.control.defaults().extend([
+            new ol.control.ScaleLine()
+        ]),
+        //Die verschiedenen BaseLayer: OpenStreetMap, OpenTopoMap oder eine Outdoor-Karte von Mapbox
         layers: [
             new ol.layer.Group({
                 'title': 'Base maps',
@@ -91,6 +87,8 @@
                     }),
                 ]
             }),
+            //Zur Mapbox-Karte kann Hillshading oder Höhenlinien dazugeschaltet werden.
+            //Leider konnte ich die Höhenlinien bei der OpenTopoMap nicht isolieren.
             new ol.layer.Group({
                 title: 'Overlays',
                 layers: [
@@ -108,25 +106,25 @@
                     }),
                 ]
             }),
+            heatmapLayer,
             geojson_layer
         ],
+        //Ansicht Südostaustraliens
         view: new ol.View({
-            center: ol.proj.transform([-0.92, 52.96], 'EPSG:4326', 'EPSG:3857'),
+            center: ol.proj.transform([144, -37], 'EPSG:4326', 'EPSG:3857'),
             zoom: 6
         })
     });
 
-    var layerSwitcher = new ol.control.LayerSwitcher({
-        tipLabel: 'Légende' // Optional label for button
+    //Erzeugt den LayerSwitcher-Button oben rechts
+    const layerSwitcher = new ol.control.LayerSwitcher({
+        tipLabel: 'Legend' // Optional label for button
     });
     map.addControl(layerSwitcher);
 
 
-    /**
-     * Popup
-     **/
-    var
-        container = document.getElementById('popup'),
+    //Popup
+    const container = document.getElementById('popup'),
         content_element = document.getElementById('popup-content'),
         closer = document.getElementById('popup-closer');
 
@@ -135,41 +133,42 @@
         closer.blur();
         return false;
     };
-    var overlay = new ol.Overlay({
+    const overlay = new ol.Overlay({
         element: container,
         autoPan: true,
-        offset: [0, -10]
+        offset: [10, 0]
     });
     map.addOverlay(overlay);
 
-    var fullscreen = new ol.control.FullScreen();
+    const fullscreen = new ol.control.FullScreen();
     map.addControl(fullscreen);
 
     map.on('click', function(evt){
-        var feature = map.forEachFeatureAtPixel(evt.pixel,
-            function(feature, layer) {
+        const feature = map.forEachFeatureAtPixel(evt.pixel,
+            function (feature, layer) {
                 return feature;
+            },
+            {
+                hitTolerance: 6
             });
         if (feature) {
-            var geometry = feature.getGeometry();
-            var coord = geometry.getCoordinates();
+            const geometry = feature.getGeometry();
+            let coord;
+            //Auswahl des Markerpunktes
+            if(geometry instanceof ol.geom.GeometryCollection) {
+                geometry.getGeometries().forEach(function(geom) {
+                    if(geom instanceof ol.geom.Point) {
+                        coord = geom.getCoordinates();
+                    }
+                });
+            }
 
-            var content = '<h3>' + feature.get('name') + '</h3>';
+            //Anzeigen der weiteren Informationen zum Feuer
+            let content = '<h3>' + feature.get('title') + '</h3>';
             content += '<h5>' + feature.get('description') + '</h5>';
 
             content_element.innerHTML = content;
             overlay.setPosition(coord);
-
-            //console.info(feature.getProperties());
         }
     });
-    map.on('pointermove', function(e) {
-        if (e.dragging) return;
-
-        var pixel = map.getEventPixel(e.originalEvent);
-        var hit = map.hasFeatureAtPixel(pixel);
-
-        //map.getTarget().style.cursor = hit ? 'pointer' : '';
-    });
-
 })();
