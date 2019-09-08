@@ -1,0 +1,7 @@
+Hillshade: mapbox://styles/simonbohnen/cjxlzuadi0bll1coc00khaagd
+Contour: mapbox://styles/simonbohnen/cjxm02lsr0c6v1coa2p7i0dgw
+
+
+pk.eyJ1Ijoic2ltb25ib2huZW4iLCJhIjoiY2p4aW9leGZhMXNkNTQxbDdjeGlxN3c2dCJ9.l9OK6BGObhF7BqaVLMTN-w
+
+mapbox://styles/simonbohnen/cjxm0imqv0cl41coa3ipspg6c
