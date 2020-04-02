@@ -1,24 +1,3 @@
-/** Ultra Light */
-@font-face {
-    font-family: "San Francisco";
-    font-weight: 100;
-    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff2");
-}
-
-/** Thin */
-@font-face {
-    font-family: "San Francisco";
-    font-weight: 200;
-    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff2");
-}
-
-/** Regular */
-@font-face {
-    font-family: "San Francisco";
-    font-weight: 400;
-    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff2");
-}
-
 /** Medium */
 @font-face {
     font-family: "San Francisco";
@@ -26,25 +5,11 @@
     src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff2");
 }
 
-/** Semi Bold */
-@font-face {
-    font-family: "San Francisco";
-    font-weight: 500;
-    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff2");
-}
-
 /** Bold */
 @font-face {
     font-family: "San Francisco";
     font-weight: bold;
     src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff2");
-}
-
-/** heavy */
-@font-face {
-    font-family: "San Francisco";
-    font-weight: 600;
-    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-heavy-webfont.woff2");
 }
 
 :root {
@@ -161,44 +126,10 @@ body {
 }
 
 @media (max-width: 480px) {
-    #content {
-        padding-top: 5vh;
-    }
     .social-icons {
         font-size: 16vw;
     }
-    .about p {
-        font-size: 1.5em;
-    }
-    p {
-        font-size: 1.2em;
-    }
-    h1 {
-        font-size: 2.5em;
-    }
     .nav a {
         font-size: 4vw;
-    }
-    h2 {
-        font-size: 1.75em;
-    }
-    h3 {
-        font-size: 1.25em;
-    }
-    footer {
-        font-size: 0.75em;
-    }
-    .appIcon {
-        max-width: 33%;
-    }
-    .anchor{
-        display:block;
-        height:3.5vh;
-        margin-top:-3.5vh;
-        visibility:hidden;
-    }
-    .lan {
-        text-align: center !important;
-        font-size: 1.5em !important;
     }
 }
