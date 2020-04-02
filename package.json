@@ -22,6 +22,6 @@
     "eslint-plugin-import": "^2.18.2"
   },
   "dependencies": {
-    "jquery": "^3.4.1"
+    "p5": "^0.9.0"
   }
 }

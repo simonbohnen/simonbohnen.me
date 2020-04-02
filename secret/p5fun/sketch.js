@@ -1,23 +1,19 @@
-let cellSize = 20;
-var cells = [], neighbors = [];
-var cellsX, cellsY;
+const cellSize = 20;
+const cells = [];
+const neighbors = [];
+let cellsX;
+let cellsY;
 
+// eslint-disable-next-line no-unused-vars
 function setup() {
   createCanvas(400, 400);
   cellsX = width / cellSize;
   cellsY = height / cellSize;
-  /*
-  let oneRow = Array(cellsY);
-  oneRow.fill(0);
-  cells = Array(cellsX);
-  neighbors = Array(cellsX);
-  cells.fill(oneRow);
-  neighbors.fill(oneRow);
-  */
-  for (var x = 0; x < cellsX; x++) {
+
+  for (let x = 0; x < cellsX; x += 1) {
     cells.push([]);
     neighbors.push([]);
-    for (var y = 0; y < cellsY; y++) {
+    for (let y = 0; y < cellsY; y += 1) {
       cells[x].push(false);
       neighbors[x].push(0);
     }
@@ -25,23 +21,28 @@ function setup() {
   background(0);
   fill(255);
   stroke(255);
-  //frameRate(10);
-  //rect(20, 20, 40, 40);
+  // frameRate(10);
+  // rect(20, 20, 40, 40);
 }
 
+// eslint-disable-next-line no-unused-vars
 function draw() {
   background(0);
-  for(var x = 0; x < cellsX; ++x) {
+  for (let x = 0; x < cellsX; x += 1) {
     console.log(x);
-    for(var y = 0; y < cellsY; ++y) {
-      if(neighbors[x][y] < 2) {
-        let rx = Math.floor(random(cellsX));
-        let ry = Math.floor(random(cellsY))
+    for (let y = 0; y < cellsY; y += 1) {
+      if (neighbors[x][y] < 2) {
+        const rx = Math.floor(random(cellsX));
+        const ry = Math.floor(random(cellsY));
         cells[rx][ry] = !cells[rx][ry];
-        let change = cells[rx][ry] ? 1 : -1;
-        for(dx = -1; dx < 2; ++dx) {
-          for(dy = -1; dy < 2; ++dy) {
-            if((dx != 0 || dy != 0) && rx + dx >= 0 && rx + dx < cellsX && ry + dy >= 0 && ry + dy < cellsY) {
+        const change = cells[rx][ry] ? 1 : -1;
+        for (let dx = -1; dx < 2; dx += 1) {
+          for (let dy = -1; dy < 2; dy += 1) {
+            if ((dx !== 0 || dy !== 0)
+                && rx + dx >= 0
+                && rx + dx < cellsX
+                && ry + dy >= 0
+                && ry + dy < cellsY) {
               neighbors[rx + dx][ry + dy] += change;
             }
           }
@@ -50,10 +51,10 @@ function draw() {
     }
   }
 
-  //Rendering:
-  for(var x = 0; x < cellsX; ++x) {
-    for(var y = 0; y < cellsY; ++y) {
-      if(cells[x][y]) {
+  // Rendering:
+  for (let x = 0; x < cellsX; x += 1) {
+    for (let y = 0; y < cellsY; y += 1) {
+      if (cells[x][y]) {
         rect(x * cellSize, y * cellSize, cellSize, cellSize);
       }
     }

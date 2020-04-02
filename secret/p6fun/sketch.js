@@ -1,4 +1,4 @@
-var pos, vel, orig;
+let pos, vel, orig;
 
 function setup() {
   createCanvas(800, 800);
@@ -12,7 +12,7 @@ function setup() {
 
 function draw() {
   background(0, 1);
-  let f = p5.Vector.sub(orig, pos);
+  let f = Vector.sub(orig, pos);
   f.rotate(randomGaussian(0, PI / 2)).mult(0.001);
   vel.add(f).normalize();
   pos.add(vel);
