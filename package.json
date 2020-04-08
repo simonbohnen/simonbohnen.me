@@ -1,0 +1,30 @@
+{
+  "name": "simonbohnen.me",
+  "version": "1.0.0",
+  "description": "Personal website of Simon Bohnen.",
+  "scripts": {
+    "start": "parcel src/**/*.html",
+    "build": "parcel build src/**/*.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonbohnen/simonbohnen.me.git"
+  },
+  "author": "Simon Bohnen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simonbohnen/simonbohnen.me/issues"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-remove-index-html": "^0.1.0"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "p5": "^0.9.0",
+    "webfontloader": "^1.6.28"
+  }
+}
