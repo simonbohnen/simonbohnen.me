@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Personal website of Simon Bohnen.",
   "scripts": {
-    "start": "parcel src/**/*.html",
-    "build": "parcel build src/**/*.html"
+    "start": "parcel src/**/*.html src/files/*",
+    "build": "parcel build src/**/*.html src/files/*"
   },
   "repository": {
     "type": "git",

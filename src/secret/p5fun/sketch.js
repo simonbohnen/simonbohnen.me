@@ -1,4 +1,4 @@
-import p5 from "p5";
+import p5 from 'p5';
 
 const s = (sketch) => {
   const cellSize = 20;
@@ -25,7 +25,7 @@ const s = (sketch) => {
     sketch.stroke(255);
     // frameRate(10);
     // rect(20, 20, 40, 40);
-  }
+  };
 
   sketch.draw = () => {
     sketch.background(0);
@@ -60,8 +60,8 @@ const s = (sketch) => {
         }
       }
     }
-  }
-}
+  };
+};
 
 // noinspection JSPotentiallyInvalidConstructorUsage
-let myp5 = new p5(s);
+new p5(s);
