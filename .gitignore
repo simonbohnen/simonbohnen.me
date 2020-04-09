@@ -1,3 +1,8 @@
 .idea/
-old/openlayers-demo/unused data/
+.vscode/
+.cache/
+old/
+dist/
+node_modules/
 .DS_Store
+status.txt
