@@ -1,0 +1,5 @@
+#robots for simonbohnen.me
+User-agent: *
+Disallow: /secret/
+Disallow: /files/
+Disallow: /img/
