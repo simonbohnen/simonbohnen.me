@@ -36,9 +36,9 @@
 @media screen and (prefers-color-scheme: dark) {
   :root {
     /* dark mode */
-    --accent-color: var(--tum-blue);
+    --accent-color: var(--tum-mid-blue);
     --background-color: var(--black);
-    --hover-color: var(--tum-mid-blue);
+    --hover-color: var(--tum-blue);
   }
 }
 
