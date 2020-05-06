@@ -85,7 +85,7 @@ body {
 }
 
 .img-circle {
-  --border-radius: 15%;
+  --border-radius: 50%;
   max-width: 45vh;
   max-height: 45vh;
   text-align: center;
