@@ -1,135 +1,129 @@
-/** Medium */
 @font-face {
-    font-family: "San Francisco";
-    font-weight: normal;
-    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff2");
+  font-family: "San Francisco";
+  font-weight: normal;
+  src: url("https://www.apple.com/wss/fonts/SF-Pro-Display/v3/sf-pro-display_regular.woff2");
 }
 
-/** Bold */
 @font-face {
-    font-family: "San Francisco";
-    font-weight: bold;
-    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff2");
+  font-family: "San Francisco";
+  font-weight: /*semi*/ bold;
+  src: url("https://www.apple.com/wss/fonts/SF-Pro-Display/v3/sf-pro-display_semibold.woff2");
 }
 
 :root {
-    --main-color: rgb(0, 31, 39);
+  /* SETUP */
+  /* colors */
+  --center-blue: #174489;
+  --black: #000000;
+  --white: #ffffff;
+  --tum-blue: #0065BD;
+  --tum-light-blue: #64A0C8;
+  --tum-mid-blue: #005293;
+  --tum-dark-blue: #003359;
+  --tum-mid-grey: #808080;
+  --tum-dark-grey: #333333;
+  --tum-orange: #E37222;
+
+  /* other stuff */
+  font-family: "San Francisco", sans-serif;
+
+  /* light mode */
+  --accent-color: var(--tum-dark-blue);
+  --background-color: var(--white);
+  --hover-color: var(--tum-mid-blue);
 }
 
-html {
-    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", 'Avenir Black', 'Avenir', 'Roboto', sans-serif;
-    color: black;
-    background: white;
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    /* dark mode */
+    --accent-color: var(--tum-blue);
+    --background-color: var(--black);
+    --hover-color: var(--tum-mid-blue);
+  }
 }
 
 body {
-    margin: 0;
-}
-
-#content {
-    margin: 0 auto;
-    padding: 15vh 5% 0 5%;
-}
-
-
-.img-circle {
-    max-width: 45vh;
-    max-height: 45vh;
-    text-align: center;
-    border: 0.5vh solid var(--main-color);
-    border-radius: 50%;
-    display: inline;
-}
-
-.img-circle:hover {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    border: 0.5vh solid var(--main-color);
-    box-shadow: 0 0 0.5em 0.1em rgba(0, 0, 0, 0.5);
-}
-
-.social-icons {
-    color: black;
-    text-align: center;
-    line-height: 1%;
-    font-size: 10vw;
-    margin-top: 10vh;
-    margin-bottom: 5%;
-}
-
-.social-icons a, .social-icons i {
-    color: var(--main-color);
-}
-
-.social-icons a:hover, .social-icons i:hover {
-    transform: scale(1.2, 1.2);
-    z-index: 0;
-}
-
-.about {
-    text-align: center;
-    margin: 0 auto;
-    height: auto;
+  margin: 0;
+  background-color: var(--background-color);
 }
 
 .nav {
-    background-color: var(--main-color);
-    overflow: hidden;
-    position: fixed;
-    left: 0;
-    top: 0;
-    text-align: center;
-    z-index: 1;
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    width: 100%;
+  background-color: var(--accent-color);
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  text-align: center;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  width: 100%;
+  color: var(--background-color);
 }
 
-.nav a, #githublink {
-    z-index: 1;
-    padding: 1vw 2vw;
-    color: rgba(255, 255, 255, 1);
-    text-decoration: none;
-    font-size: 3vh;
+.nav a {
+  z-index: 1;
+  padding: 1vw 2vw;
+  text-decoration: none;
+  font-size: 3vh;
+  color: var(--background-color);
 }
 
-#centernav {
-    text-align: center;
+.nav a:hover {
+  background-color: var(--hover-color);
+  color: var(--background-color);
 }
 
-.nav a:hover, #githublink:hover {
-    background-color: white;
-    color: var(--main-color);
+.site {
+  text-align: center;
+  margin: 0 auto;
+  height: auto;
+  padding: 15vh 5% 0 5%;
 }
 
-.e404 {
-    padding-top: 2vh;
+.img-circle {
+  --border-radius: 15%;
+  max-width: 45vh;
+  max-height: 45vh;
+  text-align: center;
+  border: .8vh solid var(--accent-color);
+  /*box-shadow: 0 0 0 0.4em var(--accent-color);*/
+  border-radius: var(--border-radius);
+  display: inline;
 }
 
-.e404 h1 {
-    font-size: 10vh;
+.img-circle:hover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: var(--border-radius);
+  border: 0.8vh solid var(--hover-color);
+  /* /optional: bigger border when hovering/ box-shadow: 0 0 0 0.6em var(--accent-color); */
 }
 
-.startImage {
-    width: 20vw;
+.social-icons, .social-icons a, .social-icons i {
+  color: var(--accent-color);
+  text-align: center;
+  line-height: 1%;
+  font-size: 10vw;
+  margin-top: 10vh;
+  margin-bottom: 5%;
 }
 
-.headerPic {
-    font-size: 5vw;
+.social-icons a:hover, .social-icons i:hover {
+  color: var(--hover-color);
 }
 
 @media (max-width: 480px) {
-    .social-icons {
-        font-size: 16vw;
-    }
-    .nav a {
-        font-size: 6vw;
-    }
+  .social-icons {
+    font-size: 16vw;
+  }
+  .nav a {
+    font-size: 6vw;
+  }
 }
