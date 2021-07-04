@@ -1,0 +1,16 @@
+{
+    "name": "Gmail",
+    "short_name": "Gmail",
+    "start_url": "index.html",
+    "scope": "./",
+    "icons": [
+      {
+        "src": "icon.png",
+        "sizes": "460x460",
+        "type": "image/png"
+      }
+    ],
+    "theme_color": "#ffd31d",
+    "background_color": "#333",
+    "display": "standalone"
+  }
