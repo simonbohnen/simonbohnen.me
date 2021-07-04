@@ -4,9 +4,18 @@
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <object data="https://gmail.com" width="600" height="400">
-        <embed src="https://gmail.com" width="600" height="400"> </embed>
-        Error: Embedded data could not be displayed.
-    </object>
+    <script>
+        xmlhttp=new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange=function(){
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.getElementById("main").innerHTML=xmlhttp.responseText;
+            }
+        }
+
+        xmlhttp.open("POST","https://gmail.com",true);
+        xmlhttp.send();
+    </script>
+    <div id="main"></div>
 </body>
 </html>
