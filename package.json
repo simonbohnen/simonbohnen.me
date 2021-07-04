@@ -4,7 +4,7 @@
   "description": "Personal website of Simon Bohnen.",
   "scripts": {
     "start": "parcel src/**/*.html",
-    "build": "parcel build src/**/*.html && cp -R src/files src/CNAME src/robots.txt dist/"
+    "build": "parcel build src/**/*.html && cp -R src/files src/CNAME src/robots.txt staticsrc/ dist/"
   },
   "repository": {
     "type": "git",
