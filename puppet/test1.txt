@@ -1,0 +1,7 @@
+file { “/tmp/hello”:
+  source => “http://localhost/file1”
+}
+
+file { “/tmp/foo/bar”:
+  source => “http://localhost/file2”
+}
