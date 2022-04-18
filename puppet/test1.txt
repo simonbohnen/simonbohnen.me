@@ -1,7 +1,7 @@
-file { “/tmp/hello”:
-  source => “http://simonbohnen.me/puppet/file1”
+file { "/tmp/hello":
+  source => "http://simonbohnen.me/puppet/file1"
 }
 
-file { “/tmp/foo/bar”:
-  source => “http://simonbohnen.me/puppet/file2”
+file { "/tmp/foo/bar":
+  source => "http://simonbohnen.me/puppet/file2"
 }
