@@ -70,10 +70,10 @@ body {
   width: max-content;
 }
 
-.nav a:hover {
+/* .nav a:hover {
   background-color: var(--hover-color);
   color: var(--background-color);
-}
+} */
 
 .site {
   text-align: center;
@@ -93,7 +93,7 @@ body {
   display: inline;
 }
 
-.img-circle:hover {
+/* .img-circle:hover {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -102,7 +102,7 @@ body {
   border-radius: var(--border-radius);
   border: 0.8vh solid var(--hover-color);
   /* /optional: bigger border when hovering/ box-shadow: 0 0 0 0.6em var(--accent-color); */
-}
+} */
 
 .social-icons, .social-icons a, .social-icons i {
   color: var(--accent-color);
